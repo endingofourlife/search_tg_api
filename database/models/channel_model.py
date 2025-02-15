@@ -1,2 +1,12 @@
-class Channel:
-    pass
+from sqlalchemy import INTEGER, String
+from sqlalchemy.orm import mapped_column, Mapped
+
+from .base import Base
+
+
+class Channel(Base):
+    __tablename__ = 'channels'
+    id: Mapped[int] = mapped_column(INTEGER, primary_key=True)
+    url: Mapped[str] = mapped_column(String)
+    sub_count: Mapped[int] = mapped_column(INTEGER)
+    key_word: Mapped[str] = mapped_column(String)

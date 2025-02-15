@@ -24,7 +24,6 @@ class BaseService(ABC, Generic[T, U]):
         raise NotImplementedError
 
 
-
 class ServiceResult(BaseModel, Generic[T]):
     is_success: bool
     data: Optional[T] = None

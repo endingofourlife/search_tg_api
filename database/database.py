@@ -17,13 +17,14 @@ DATABASE_URL = URL.create(
     port=5432
 ).render_as_string(hide_password=False)
 
-engine = create_async_engine(DATABASE_URL, echo=True, poolclass=None)
+engine = create_async_engine(DATABASE_URL, echo=False, poolclass=None)
 
 AsyncSessionLocal = async_sessionmaker(
     bind=engine,
     class_=AsyncSession,
     expire_on_commit=False,
 )
+
 
 async def get_db():
     async with AsyncSessionLocal() as session:
